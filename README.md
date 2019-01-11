@@ -2,6 +2,7 @@
 A simple REST Freshdesk integration
 
 [![Build Status](https://travis-ci.org/Helpling/freshdesk-rest.svg?branch=master)](https://travis-ci.org/Helpling/freshdesk-rest)
+[![Gem Version](https://badge.fury.io/rb/freshdesk-rest.svg)](https://badge.fury.io/rb/freshdesk-rest)
 
 ## Requirements
 - Create a read-only API key in Freshdesk
