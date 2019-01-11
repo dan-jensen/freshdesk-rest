@@ -13,8 +13,6 @@ A simple REST Freshdesk integration
 ### This is still a BETA!
 Some of the methods signatures could change. I aim to keep always backward compatibility, but until the first major version (1.x.x) is released, it's still in beta.
 
-Keep in mind that Phraseapp do not recommend to user the lists to retrieve all the items but to use the "#locale_download" instead. The limits of how many items per page are supported, has not been tested.
-
 ## Configuration
 ```ruby
 Freshdesk::Rest.configure do |config|
@@ -33,7 +31,7 @@ api = Freshdesk::Rest::Factory.api
 ### List of contacts
 ```ruby
 resource = Freshdesk::Rest::Factory.contact_resource
-resource.list.each do |p|
+resource.list.each do |c|
   puts "#{c[:name]} #{c[:email]} #{c[:updated_at]}"
 end
 ```
@@ -41,7 +39,7 @@ end
 ### List of contacts filtered by a filed
 ```ruby
 resource = Freshdesk::Rest::Factory.contact_resource
-resource.list(params: { unique_external_id: '1234567890' }).each do |p|
+resource.list(params: { unique_external_id: '1234567890' }).each do |c|
   puts "#{c[:name]} #{c[:email]}"
 end
 ```
