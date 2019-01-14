@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.date        = Time.new.strftime('%Y-%m-%d')
   s.summary     = 'Freshdesk rest api resource collection'
   s.description = 'A ruby gem to interact with Freshdesk REST resources'
-  s.authors     = ['Paweł Placzyński']
-  s.email       = 'placzynski.pawel@gmail.com'
+  s.authors     = ['Helpling']
+  s.email       = 'tech@helpling.com'
   s.files       = `git ls-files ./lib`.split($RS)
   s.homepage    = 'https://rubygems.org/gems/freshdesk-rest'
   s.metadata    = { 'source_code_uri' => 'https://github.com/Helpling/freshdesk-rest' }
