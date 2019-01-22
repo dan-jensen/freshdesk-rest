@@ -17,7 +17,7 @@ RSpec.describe Freshdesk::Rest::Api do
 
     context 'resource is not found' do
       before { stub_request(:get, "#{base_url}/some_wrong_path").to_return(status: 404, body: nil) }
-      it { expect(service.get('/some_wrong_path')).to eq('[]') }
+      it { expect{service.get('/some_wrong_path')}.to raise_error(RestClient::NotFound) }
     end
 
     context 'success response' do

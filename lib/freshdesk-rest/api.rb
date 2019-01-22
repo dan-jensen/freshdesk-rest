@@ -9,9 +9,6 @@ module Freshdesk
 
       def get(path)
         resource(path).get.body
-      rescue @client::ExceptionWithResponse => e
-        return '[]' if e.response.code == 404
-        raise e
       end
 
       def post(path, data)
