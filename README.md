@@ -74,5 +74,13 @@ resource = Freshdesk::Rest::Factory.contact_resource
 resource.delete(id: 1234567890)
 ```
 
+### Create Ticket
+```ruby
+resource = Freshdesk::Rest::Factory.ticket_resource
+resource.post(data: { name: 'Jon Snow', email: 'some+email@example.com', status: 2, priority: 2, source: 2 }).tap do |c|
+  puts "#{c[:name]} #{c[:email]}"
+end
+```
+
 ## Freshdesk Api reference
 https://developers.freshdesk.com/api

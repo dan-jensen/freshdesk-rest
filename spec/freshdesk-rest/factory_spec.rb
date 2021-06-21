@@ -21,4 +21,10 @@ RSpec.describe Freshdesk::Rest::Factory do
 
     it { is_expected.to be_a(Freshdesk::Rest::Resource::Contact) }
   end
+
+  describe '.ticket_resource' do
+    subject { service.ticket_resource }
+
+    it { is_expected.to be_a(Freshdesk::Rest::Resource::Ticket) }
+  end
 end
