@@ -2,6 +2,7 @@ require_relative 'freshdesk-rest/factory'
 require_relative 'freshdesk-rest/version'
 require_relative 'freshdesk-rest/configuration'
 require_relative 'freshdesk-rest/resource/contact'
+require_relative 'freshdesk-rest/resource/ticket'
 
 module Freshdesk
   module Rest
