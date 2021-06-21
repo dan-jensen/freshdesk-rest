@@ -2,6 +2,10 @@
 
 The following changes have been made to the library. Please add an entry to this file as part of your pull requests.
 
+#### Version 0.1.4
+
+- Fix **Ticket resource** missing require
+
 #### Version 0.1.3
 
 - **Ticket resource** added: post
