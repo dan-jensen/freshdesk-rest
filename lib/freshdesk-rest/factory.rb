@@ -27,6 +27,10 @@ module Freshdesk
       def self.solutions_category_resource
         Freshdesk::Rest::Resource::Solutions::Category.new(client: api)
       end
+
+      def self.solutions_folder_resource
+        Freshdesk::Rest::Resource::Solutions::Folder.new(client: api)
+      end
     end
   end
 end
