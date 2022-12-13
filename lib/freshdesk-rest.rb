@@ -5,6 +5,7 @@ require_relative 'freshdesk-rest/resource/contact'
 require_relative 'freshdesk-rest/resource/ticket'
 require_relative 'freshdesk-rest/resource/solutions'
 require_relative 'freshdesk-rest/resource/solutions/article'
+require_relative 'freshdesk-rest/resource/solutions/category'
 
 module Freshdesk
   module Rest
