@@ -3,6 +3,8 @@ require_relative 'freshdesk-rest/version'
 require_relative 'freshdesk-rest/configuration'
 require_relative 'freshdesk-rest/resource/contact'
 require_relative 'freshdesk-rest/resource/ticket'
+require_relative 'freshdesk-rest/resource/solutions'
+require_relative 'freshdesk-rest/resource/solutions/article'
 
 module Freshdesk
   module Rest
