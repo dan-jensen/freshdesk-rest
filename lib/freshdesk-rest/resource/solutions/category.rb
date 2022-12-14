@@ -1,4 +1,5 @@
 require_relative '../parser'
+require_relative '../utils'
 require 'uri'
 
 module Freshdesk
@@ -6,23 +7,15 @@ module Freshdesk
     module Resource
       module Solutions
         class Category
+          include Utils
+
           def initialize(client:)
             @client = client
             @path = '/solutions/categories'
           end
 
           def list(params: {})
-            Parser.parse(@client.get([@path, presence(query(params))].compact.join('?')))
-          end
-
-          private
-
-          def presence(value)
-            value.empty? ? nil : value
-          end
-
-          def query(params)
-            URI.encode_www_form(params.to_a)
+            Parser.parse(@client.get(path_with_params(@path, params)))
           end
         end
       end
