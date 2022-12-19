@@ -1,16 +1,20 @@
 require_relative 'parser'
+require_relative 'utils'
+require 'uri'
 
 module Freshdesk
   module Rest
     module Resource
       class Contact
+        include Utils
+
         def initialize(client:)
           @client = client
           @path = '/contacts'
         end
 
         def list(params: {})
-          Parser.parse(@client.get([@path, presence(query(params))].compact.join('?')))
+          Parser.parse(@client.get(path_with_params(@path, params)))
         end
 
         def get(id:)
@@ -27,16 +31,6 @@ module Freshdesk
 
         def delete(id:)
           Parser.parse(@client.delete("#{@path}/#{id}"))
-        end
-
-        private
-
-        def presence(value)
-          value.empty? ? nil : value
-        end
-
-        def query(params)
-          URI.encode_www_form(params.to_a)
         end
       end
     end

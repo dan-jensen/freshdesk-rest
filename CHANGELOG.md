@@ -2,6 +2,14 @@
 
 The following changes have been made to the library. Please add an entry to this file as part of your pull requests.
 
+#### Version 0.1.5
+- Add solutions folders resource #list
+- Add solutions categories resource #list
+- Add solutions articles resource #get #list #search
+- Add missing require uri in contact so spec pass when running it isolated
+- Updates mime-types from 3.2.2 to 3.4.1
+- Update bundler from 1.16.2 to 2.3.10
+
 #### Version 0.1.4
 
 - Fix **Ticket resource** missing require

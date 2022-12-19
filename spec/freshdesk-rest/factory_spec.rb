@@ -27,4 +27,22 @@ RSpec.describe Freshdesk::Rest::Factory do
 
     it { is_expected.to be_a(Freshdesk::Rest::Resource::Ticket) }
   end
+
+  describe '.solutions_article_resource' do
+    subject { service.solutions_article_resource }
+
+    it { is_expected.to be_a(Freshdesk::Rest::Resource::Solutions::Article) }
+  end
+
+  describe '.solutions_category_resource' do
+    subject { service.solutions_category_resource }
+
+    it { is_expected.to be_a(Freshdesk::Rest::Resource::Solutions::Category) }
+  end
+
+  describe '.solutions_folder_resource' do
+    subject { service.solutions_folder_resource }
+
+    it { is_expected.to be_a(Freshdesk::Rest::Resource::Solutions::Folder) }
+  end
 end

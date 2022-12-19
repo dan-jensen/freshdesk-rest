@@ -19,6 +19,18 @@ module Freshdesk
       def self.ticket_resource
         Freshdesk::Rest::Resource::Ticket.new(client: api)
       end
+
+      def self.solutions_article_resource
+        Freshdesk::Rest::Resource::Solutions::Article.new(client: api)
+      end
+
+      def self.solutions_category_resource
+        Freshdesk::Rest::Resource::Solutions::Category.new(client: api)
+      end
+
+      def self.solutions_folder_resource
+        Freshdesk::Rest::Resource::Solutions::Folder.new(client: api)
+      end
     end
   end
 end
