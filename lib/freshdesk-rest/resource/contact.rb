@@ -32,6 +32,11 @@ module Freshdesk
         def delete(id:)
           Parser.parse(@client.delete("#{@path}/#{id}"))
         end
+
+        def hard_delete(id:, force: false)
+          force_params = force ? { force: true } : {}
+          Parser.parse(@client.delete(path_with_params([@path, id, 'hard_delete'], force_params)))
+        end
       end
     end
   end
