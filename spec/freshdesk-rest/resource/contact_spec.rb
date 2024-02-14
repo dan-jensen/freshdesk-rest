@@ -46,4 +46,27 @@ RSpec.describe Freshdesk::Rest::Resource::Contact do
 
     it { is_expected.to eq(result) }
   end
+
+  describe '#delete' do
+    before  { allow(api).to receive(:delete).with('/contacts/2015007548012').and_return(response) }
+    subject { service.delete(id: '2015007548012') }
+
+    it { is_expected.to eq(result) }
+  end
+
+  describe '#hard_delete' do
+    context 'without force' do
+      before  { allow(api).to receive(:delete).with('/contacts/2015007548012/hard_delete').and_return(response) }
+      subject { service.hard_delete(id: '2015007548012') }
+
+      it { is_expected.to eq(result) }
+    end
+
+    context 'with force' do
+      before  { allow(api).to receive(:delete).with('/contacts/2015007548012/hard_delete?force=true').and_return(response) }
+      subject { service.hard_delete(id: '2015007548012', force: true) }
+
+      it { is_expected.to eq(result) }
+    end
+  end
 end
