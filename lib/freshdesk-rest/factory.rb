@@ -31,6 +31,16 @@ module Freshdesk
       def self.solutions_folder_resource
         Freshdesk::Rest::Resource::Solutions::Folder.new(client: api)
       end
+
+      class << self
+        extend Gem::Deprecate
+        deprecate :api, :none, 2024, 5
+        deprecate :contact_resource, "Freshdesk::Rest::Client.new.contact_resource", 2024, 5
+        deprecate :ticket_resource, "Freshdesk::Rest::Client.new.ticket_resource", 2024, 5
+        deprecate :solutions_article_resource, "Freshdesk::Rest::Client.new.solutions_article_resource", 2024, 5
+        deprecate :solutions_category_resource, "Freshdesk::Rest::Client.new.solutions_category_resource", 2024, 5
+        deprecate :solutions_folder_resource, "Freshdesk::Rest::Client.new.solutions_folder_resource", 2024, 5
+      end
     end
   end
 end
