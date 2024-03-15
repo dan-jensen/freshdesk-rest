@@ -13,7 +13,7 @@ A simple REST Freshdesk integration
 ### This is still a BETA!
 Some of the methods signatures could change. I aim to keep always backward compatibility, but until the first major version (1.x.x) is released, it's still in beta.
 
-## Configuration
+## Default Configuration
 ```ruby
 Freshdesk::Rest.configure do |config|
   config.api_key = ENV['FRESHDESK_API_KEY']
@@ -23,14 +23,23 @@ end
 ```
 
 ## Usage
-Get the api client using the factory
+
+### Initialize a client if the default configuration is specified
 ```ruby
-api = Freshdesk::Rest::Factory.api
+freshdesk_client = Freshdesk::Rest::Client.new
+```
+
+### Initialize a client with specific keys
+```ruby
+freshdesk_client = Freshdesk::Rest::Client.new(
+  api_key: ENV['FRESHDESK_API_KEY'],
+  domain: ENV['FRESHDESK_DOMAIN']
+)
 ```
 
 ### List of contacts
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.list.each do |c|
   puts "#{c[:name]} #{c[:email]} #{c[:updated_at]}"
 end
@@ -38,7 +47,7 @@ end
 
 ### List of contacts filtered by a filed
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.list(params: { unique_external_id: '1234567890' }).each do |c|
   puts "#{c[:name]} #{c[:email]}"
 end
@@ -46,7 +55,7 @@ end
 
 ### Contact
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.get(id: '1234567890').tap do |c|
   puts "#{c[:name]} #{c[:email]}"
 end
@@ -54,7 +63,7 @@ end
 
 ### Create contact
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.post(data: { name: 'Jon Snow', email: 'some+email@example.com' }).tap do |c|
   puts "#{c[:name]} #{c[:email]}"
 end
@@ -62,7 +71,7 @@ end
 
 ### Update contact
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.put(id: 1234567890, data: { email: 'other+email@example.com' }).tap do |c|
   puts "#{c[:name]} #{c[:email]}"
 end
@@ -70,13 +79,13 @@ end
 
 ### Soft delete contact
 ```ruby
-resource = Freshdesk::Rest::Factory.contact_resource
+resource = freshdesk_client.contact_resource
 resource.delete(id: 1234567890)
 ```
 
 ### Create Ticket
 ```ruby
-resource = Freshdesk::Rest::Factory.ticket_resource
+resource = freshdesk_client.ticket_resource
 resource.post(data: { name: 'Jon Snow', email: 'some+email@example.com', status: 2, priority: 2, source: 2 }).tap do |c|
   puts "#{c[:name]} #{c[:email]}"
 end

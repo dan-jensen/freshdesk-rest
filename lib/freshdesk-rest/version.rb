@@ -1,5 +1,5 @@
 module Freshdesk
   module Rest
-    VERSION = '0.1.6'
+    VERSION = '2.0.0'
   end
 end
