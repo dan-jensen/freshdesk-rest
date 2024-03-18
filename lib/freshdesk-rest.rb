@@ -1,3 +1,4 @@
+require_relative 'freshdesk-rest/client'
 require_relative 'freshdesk-rest/factory'
 require_relative 'freshdesk-rest/version'
 require_relative 'freshdesk-rest/configuration'
