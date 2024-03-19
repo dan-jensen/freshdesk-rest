@@ -2,6 +2,9 @@
 
 The following changes have been made to the library. Please add an entry to this file as part of your pull requests.
 
+#### Version 2.1.0
+- Add Companies resource
+
 #### Version 2.0.0
 - Add Client class as a replacement for Factory class to create an api client as an instance instead of static class, so it would be possible to have several api objects for different Freshdesk accounts
 - Deprecate Factory class
