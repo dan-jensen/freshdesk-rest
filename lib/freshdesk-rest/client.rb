@@ -19,6 +19,10 @@ module Freshdesk
         Freshdesk::Rest::Resource::Contact.new(client: api)
       end
 
+      def company_resource
+        Freshdesk::Rest::Resource::Company.new(client: api)
+      end
+
       def ticket_resource
         Freshdesk::Rest::Resource::Ticket.new(client: api)
       end
