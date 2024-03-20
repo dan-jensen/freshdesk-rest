@@ -32,6 +32,21 @@ RSpec.describe Freshdesk::Rest::Client do
       end
     end
 
+    describe '.company_resource' do
+      it 'returns appropriate class with correct params' do
+        allow(Freshdesk::Rest::Resource::Company).to receive(:new)
+        described_class.new.company_resource
+        expect(Freshdesk::Rest::Api).to have_received(:new).with(
+          rest_client: RestClient,
+          api_key:,
+          domain:
+        )
+        expect(Freshdesk::Rest::Resource::Company).to have_received(:new).with(
+          client: api
+        )
+      end
+    end
+
     describe '.ticket_resource' do
       it 'returns appropriate class with correct params' do
         allow(Freshdesk::Rest::Resource::Ticket).to receive(:new)
@@ -104,6 +119,21 @@ RSpec.describe Freshdesk::Rest::Client do
           domain:
         )
         expect(Freshdesk::Rest::Resource::Contact).to have_received(:new).with(
+          client: api
+        )
+      end
+    end
+
+    describe '.company_resource' do
+      it 'returns appropriate class with correct params' do
+        allow(Freshdesk::Rest::Resource::Company).to receive(:new)
+        described_class.new(api_key:, domain:).company_resource
+        expect(Freshdesk::Rest::Api).to have_received(:new).with(
+          rest_client: RestClient,
+          api_key:,
+          domain:
+        )
+        expect(Freshdesk::Rest::Resource::Company).to have_received(:new).with(
           client: api
         )
       end

@@ -83,6 +83,48 @@ resource = freshdesk_client.contact_resource
 resource.delete(id: 1234567890)
 ```
 
+### Hard delete contact
+```ruby
+resource = freshdesk_client.contact_resource
+resource.hard_delete(id: 1234567890)
+```
+
+Force delete a contact that is not soft deleted already
+```ruby
+resource = freshdesk_client.contact_resource
+resource.hard_delete(id: 1234567890, force: true)
+```
+
+### Company
+```ruby
+resource = freshdesk_client.company_resource
+resource.get(id: '1234567890').tap do |c|
+  puts "#{c[:name]} #{c[:description]}"
+end
+```
+
+### Create company
+```ruby
+resource = freshdesk_client.company_resource
+resource.post(data: { name: 'Jon Snow', description: 'some description' }).tap do |c|
+  puts "#{c[:name]} #{c[:description]}"
+end
+```
+
+### Update company
+```ruby
+resource = freshdesk_client.company_resource
+resource.put(id: 1234567890, data: { description: 'some description' }).tap do |c|
+  puts "#{c[:name]} #{c[:description]}"
+end
+```
+
+### Delete company
+```ruby
+resource = freshdesk_client.company_resource
+resource.delete(id: 1234567890)
+```
+
 ### Create Ticket
 ```ruby
 resource = freshdesk_client.ticket_resource
