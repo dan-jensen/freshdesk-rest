@@ -89,6 +89,12 @@ resource = freshdesk_client.contact_resource
 resource.hard_delete(id: 1234567890)
 ```
 
+Force delete a contact that is not soft deleted already
+```ruby
+resource = freshdesk_client.contact_resource
+resource.hard_delete(id: 1234567890, force: true)
+```
+
 ### Company
 ```ruby
 resource = freshdesk_client.company_resource
